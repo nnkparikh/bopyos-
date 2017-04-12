@@ -23,8 +23,8 @@ resb 16384
 stack_top:
 
 section .text
-global _kstart:function
-_kstart:
+global _start:function
+_start:
 	; point esp register to the top of the stack
 	mov esp, stack_top
 	extern kernel_main
@@ -35,5 +35,5 @@ _kstart:
 .loop:  hlt
 	; in case processor wakes up ue to a non-maskable interrupt
 	jmp .loop
-.kend:
+.end:
 	
