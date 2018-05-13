@@ -23,6 +23,9 @@ all: install-headers install-kernel
 dopyos.kernel: $(OBJS) $(ARCHDIR)/linker/linker.ld
 	$(CC) -T $(ARCHDIR)/linker/linker.ld -o $@ $(CFLAGS) $(LINK_LIST)
 
+$(ARCHDIR)/boot/boot.o:
+	nasm -felf32 $(ARCHDIR)/boot/boot.asm -o $(ARCHDIR)/boot/boot.o
+
 %.o: %.c
 	$(CC)  -c $< -o $@ -std=gnu11 $(CFLAGS)
 
