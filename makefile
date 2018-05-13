@@ -20,7 +20,7 @@ LINK_LIST = $(OBJS) $(LIBS)
 
 all: install-headers install-kernel
 
-dopyos.kernel: $(OBJS) $(ARCHDIR)/linker/linker.ld
+yamos.kernel: $(OBJS) $(ARCHDIR)/linker/linker.ld
 	$(CC) -T $(ARCHDIR)/linker/linker.ld -o $@ $(CFLAGS) $(LINK_LIST)
 
 $(ARCHDIR)/boot/boot.o:
@@ -34,9 +34,9 @@ install-headers:
 	cp -R --preserve=timestamp include/kernel $(DEST_DIR)$(INCLUDE_DIR)/.
 	cp -R --preserve=timestamp include/lib/. $(DEST_DIR)$(INCLUDE_DIR)/.
 
-install-kernel: dopyos.kernel
+install-kernel: yamos.kernel
 	mkdir -p $(DEST_DIR)$(BOOT_DIR)
-	cp dopyos.kernel $(DEST_DIR)$(BOOT_DIR)/
+	cp yamos.kernel $(DEST_DIR)$(BOOT_DIR)/
 clean:
 	rm -rf sysroot/
-	rm *.o dopyos.kernel
+	rm *.o yamos.kernel

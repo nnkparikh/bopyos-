@@ -1,2 +1,2 @@
 #!/bin/sh
-qemu-system-i386 -curses -cdrom dopyos.iso
+qemu-system-i386 -curses -cdrom yamos.iso
