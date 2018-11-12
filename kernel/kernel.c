@@ -2,5 +2,5 @@
 
 void kernel_main(void) {
   terminal_init();
-  terminal_writestring("he");
+  terminal_writestring("Entering kernal_main procedure...");
 }
